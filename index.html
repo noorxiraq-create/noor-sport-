@@ -36,11 +36,11 @@
             background-size: 40px 40px; }
 
         header { position: sticky; top: 0; z-index: 100; background: rgba(6, 9, 19, 0.85); backdrop-filter: blur(30px); border-bottom: 2px solid var(--border); }
-        .header-top { background: linear-gradient(90deg, var(--green), #004422, var(--border)); padding: 8px 32px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .header-top { background: linear-gradient(90deg, var(--green), #004422, var(--border)); padding: 8px 32px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
         .header-main { padding: 0 32px; height: 76px; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 14px; cursor: pointer; text-decoration: none; }
         
-        .logo-emblem { width: 44px; height: 44px; background: linear-gradient(135deg, var(--green), var(--border)); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(0,204,102,0.3); border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; }
+        .logo-emblem { width: 44px; height: 44px; background: linear-gradient(135deg, var(--green), var(--border)); border-radius: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
         .logo:hover .logo-emblem { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 30px rgba(0,204,102,0.5); }
         .logo-emblem span { font-size: 22px; }
         
@@ -60,11 +60,11 @@
         .ticker-text { display: inline-block; padding-right: 100%; animation: tick 28s linear infinite; font-size: 13px; font-weight: 600; white-space: nowrap; color: var(--text2); }
 
         .hero { padding: 24px 32px 16px; max-width: 1320px; margin: 0 auto; width: 100%; }
-        .wc-banner { background: linear-gradient(135deg, #090e1f, #131a35); border: 1px solid var(--border); border-radius: 18px; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .wc-banner { background: linear-gradient(135deg, #090e1f, #131a35); border: 1px solid var(--border); border-radius: 18px; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
         .wc-banner::before { content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(0,204,102,0.08), transparent); pointer-events: none; }
         .wc-info { position: relative; z-index: 1; }
         
-        .wc-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 204, 102, 0.15); border: 1px solid rgba(0,204,102,0.3); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: var(--green2); }
+        .wc-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 204, 102, 0.15); border: 1px solid rgba(0,204,102,0.3); padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: 900; color: var(--green2); }
         .live-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 1.2s infinite; box-shadow: 0 0 10px #fff; }
         
         @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; background: var(--green); } 50% { transform: scale(1.4); opacity: .5; background: #fff; } }
@@ -79,7 +79,7 @@
 
         /* الأقسام التفاعلية للشبكات والمباريات */
         .matches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
-        .match-card { background: rgba(14, 19, 38, 0.65); border: 1px solid var(--border); border-radius: 20px; padding: 24px; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; }
+        .match-card { background: rgba(14, 19, 38, 0.65); border: 1px solid var(--border); border-radius: 20px; padding: 24px; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
         .match-card:hover { transform: translateY(-3px); border-color: rgba(0,204,102,0.35); box-shadow: 0 15px 30px rgba(6,9,19,0.7); }
 
         .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
@@ -98,7 +98,7 @@
 
         .center-info { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 20%; }
         .time-tag { font-family: 'Orbitron', sans-serif; font-size: 15px; color: var(--gold2); font-weight: 900; background: #000; padding: 4px 12px; border-radius: 8px; border: 1px solid var(--border); }
-        .vs-circle { margin-top: 6px; font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--text2); background: rgba(255,255,255,0.04); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .vs-circle { margin-top: 6px; font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--text2); background: rgba(255,255,255,0.04); border: 1px solid var(--border); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 
         .watch-btn {
             width: 100%; margin-top: 20px; padding: 14px;
@@ -110,8 +110,24 @@
         }
         .watch-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 204, 102, 0.5); }
 
+        .player-wrap { display: none; }
+        .player-wrap.show { display: block; }
+        .player-wrap iframe { width: 100%; height: 450px; border-radius: 12px; margin: 16px 0; }
+
+        .quality-container { margin-top: 16px; }
+        .quality-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+        .s-btn { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 12px; text-decoration: none; color: #fff; font-weight: 700; transition: all 0.3s ease; border: 1px solid var(--border); }
+        .s-btn.high { background: linear-gradient(135deg, rgba(255, 87, 34, 0.3), rgba(255, 87, 34, 0.1)); border-color: rgba(255, 87, 34, 0.5); }
+        .s-btn.med { background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.1)); border-color: rgba(76, 175, 80, 0.5); }
+        .s-btn.low { background: linear-gradient(135deg, rgba(33, 150, 243, 0.3), rgba(33, 150, 243, 0.1)); border-color: rgba(33, 150, 243, 0.5); }
+        .s-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 204, 102, 0.3); }
+        .s-icon { font-size: 20px; }
+        .s-info { display: flex; flex-direction: column; gap: 2px; }
+        .s-quality { font-size: 12px; font-weight: 900; }
+        .s-desc { font-size: 10px; color: var(--text2); }
+
         #page-contact { display: none; padding: 60px 32px; text-align: center; z-index: 1; }
-        .contact-wrap { background: var(--card); border: 2px solid var(--border); border-radius: 24px; padding: 40px; display: inline-block; max-width: 500px; width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+        .contact-wrap { background: var(--card); border: 2px solid var(--border); border-radius: 24px; padding: 40px; display: inline-block; max-width: 500px; width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
         .contact-wrap h2 { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 24px; }
         .social-btns { display: flex; flex-direction: column; gap: 14px; }
         .social-btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 15px; transition: all 0.3s; }
@@ -135,6 +151,7 @@
             .wc-banner { padding: 14px 20px; border-radius: 14px; }
             .wc-title { font-size: 18px; margin: 4px 0; }
             .matches-grid { grid-template-columns: 1fr; gap: 16px; }
+            .player-wrap iframe { height: 300px; }
         }
     </style>
 </head>
@@ -148,7 +165,7 @@
     <div class="ticker-wrap">
         <div class="ticker-badge"><i class="fas fa-bolt"></i> تنبيه هام</div>
         <div class="ticker-track">
-            <div class="ticker-text">مرحباً بكم في شبكة نور سبورت.. يرجى العلم أن سيرفرات وروابط البث المباشر للمباريات تفتح تلقائياً قبل انطلاق صافرة المباراة بـ 30 دقيقة فقط. نتمنى لكم مشاهدة ممتعة! 🔥⚽</div>
+            <div class="ticker-text">مرحباً بكم في شبكة نور سبورت.. يرجى العلم أن سيرفرات وروابط البث المباشر للمباريات تفتح بشكل أفضل على الجوال والكمبيوتر</div>
         </div>
     </div>
 
@@ -188,40 +205,38 @@
             <span>جدول مباريات اليوم</span>
         </div>
 
-        <div class="match-card">
-            <div class="card-top">
-                <div class="comm-tag"><i class="fas fa-microphone"></i> تعليق عربي</div>
-                <div class="status-badge status-live"><div class="live-dot"></div> مباشر</div>
-            </div>
-            <div class="match-main-row">
-                <div class="team-box team1">
-                    <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
-                    <span class="team-name">انجلترا</span>
+        <div class="matches-grid">
+            <div class="match-card">
+                <div class="card-top">
+                    <span class="comm-tag"><i class="fas fa-microphone"></i> تعليق عربي</span>
+                    <span class="status-badge status-live"><div class="live-dot"></div> مباشر الآن</span>
                 </div>
-                <div class="center-info">
-                    <div class="time-tag">الساعة 4</div>
-                    <div class="vs-circle">VS</div>
-                </div>
-                <div class="team-box team2">
-                    <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
-                    <span class="team-name">المكسيك</span>
-                </div>
-            </div>
-            
-            <button class="watch-btn active-state" onclick="toggleWatch(this, 0)"><i class="fas fa-times"></i> إغلاق المشاهدة</button>
-            <div class="player-wrap show" id="player-0" data-loaded="1"><iframe src="https://player.twitch.tv/?channel=mmaajjeedd999&amp;parent=majed-koora.co&amp;muted=false" frameborder="0" allowfullscreen="true" allow="autoplay; fullscreen" scrolling="no"></iframe></div>
-        
-            
-                <div class="quality-container">
-                    <div class="quality-row">
-                        <a class="s-btn high" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-fire-flame-curved"></i></div><div class="s-info"><div class="s-quality">جودة FHD</div><div class="s-desc">1080p</div></div></a>
-                        <a class="s-btn med" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-signal"></i></div><div class="s-info"><div class="s-quality">جودة HD</div><div class="s-desc">720p</div></div></a>
-                        <a class="s-btn low" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-wifi"></i></div><div class="s-info"><div class="s-quality">جودة SD</div><div class="s-desc">480p</div></div></a>
-                        
+                <div class="match-main-row">
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
+                        <div class="team-name">اسبانيا</div>
+                    </div>
+                    <div class="center-info">
+                        <div class="time-tag">22:00</div>
+                        <div class="vs-circle">VS</div>
+                    </div>
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
+                        <div class="team-name">البرتغال</div>
                     </div>
                 </div>
-            
-        </div>
+                <button class="watch-btn" onclick="toggleWatch(this, 0)"><i class="fas fa-play-circle"></i> شاهد البث المباشر</button>
+                <div class="player-wrap" id="player-0">
+                    <iframe src="https://player.twitch.tv/?channel=mmaajjeedd999&parent=majed-koora.co&muted=false" frameborder="0" allowfullscreen="true" allow="autoplay; fullscreen" scrolling="no"></iframe>
+                </div>
+                <div class="quality-container">
+                    <div class="quality-row">
+                        <a class="s-btn high" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-fire-flame-curved"></i></div><div class="s-info"><div class="s-quality">جودة FHD</div><div class="s-desc">1080p</div></div></a>
+                        <a class="s-btn med" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-signal"></i></div><div class="s-info"><div class="s-quality">جودة HD</div><div class="s-desc">720p</div></div></a>
+                        <a class="s-btn low" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-wifi"></i></div><div class="s-info"><div class="s-quality">جودة SD</div><div class="s-desc">480p</div></div></a>
+                    </div>
+                </div>
+            </div>
 
             <div class="match-card">
                 <div class="card-top">
@@ -281,6 +296,20 @@
             contactPage.style.display = 'block';
             navHome.classList.remove('active');
             navContact.classList.add('active');
+        }
+    }
+
+    // دالة تبديل عرض البث المباشر
+    function toggleWatch(button, index) {
+        const player = document.getElementById(`player-${index}`);
+        player.classList.toggle('show');
+        
+        if (player.classList.contains('show')) {
+            button.innerHTML = '<i class="fas fa-times"></i> إغلاق المشاهدة';
+            button.classList.add('active-state');
+        } else {
+            button.innerHTML = '<i class="fas fa-play-circle"></i> شاهد البث المباشر';
+            button.classList.remove('active-state');
         }
     }
 </script>
