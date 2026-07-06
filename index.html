@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="no-referrer">
+    <title>نور سبورت | بث مباشر | مباريات اليوم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Bebas+Neue&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* تعديل الألوان لتناسب هوية نور سبورت: الأخضر الرياضي والذهبي الفخم */
+            --green: #00cc66; 
+            --green2: #00ff88; 
+            --gold: #d4af37; 
+            --gold2: #f9e076;
+            --bg: #060913; 
+            --card: #0e1326; 
+            --border: #1e2646;
+            --text: #ffffff; 
+            --text2: #8fa0c4;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+        .bg-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+        .bg-layer::before { content: ''; position: absolute; inset: 0; background:
+            radial-gradient(circle 50vw at 50% -20vh, rgba(0, 204, 102, 0.15) 0%, transparent 70%),
+            radial-gradient(circle 40vw at 90% 80vh, rgba(0, 82, 132, 0.12) 0%, transparent 60%),
+            radial-gradient(circle 35vw at 10% 40vh, rgba(212, 175, 55, 0.08) 0%, transparent 50%); }
+        .bg-layer::after { content: ''; position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 40px 40px; }
+
+        header { position: sticky; top: 0; z-index: 100; background: rgba(6, 9, 19, 0.85); backdrop-filter: blur(30px); border-bottom: 2px solid var(--border); }
+        .header-top { background: linear-gradient(90deg, var(--green), #004422, var(--border)); padding: 8px 32px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+        .header-main { padding: 0 32px; height: 76px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 14px; cursor: pointer; text-decoration: none; }
+        
+        .logo-emblem { width: 44px; height: 44px; background: linear-gradient(135deg, var(--green), var(--border)); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(0,204,102,0.3); border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s; }
+        .logo:hover .logo-emblem { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 30px rgba(0,204,102,0.5); }
+        .logo-emblem span { font-size: 22px; }
+        
+        .logo-main { font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 2px; background: linear-gradient(to right, #fff, var(--green2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-sub { font-size: 10px; color: var(--text2); letter-spacing: 5px; text-transform: uppercase; margin-top: 2px; font-weight: 700; }
+        
+        nav { display: flex; align-items: center; gap: 8px; }
+        nav a { color: var(--text2); text-decoration: none; font-size: 14px; padding: 10px 20px; border-radius: 12px; transition: all .3s; font-weight: 700; }
+        nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.05); }
+        nav a.active { color: #fff; background: linear-gradient(135deg, rgba(0,204,102,0.2), rgba(30,38,70,0.2)); border: 1px solid var(--border); }
+        .dl-btn { background: linear-gradient(135deg, var(--gold) 0%, #9a7b1c 100%) !important; color: #000 !important; font-weight: 900 !important; box-shadow: 0 4px 15px rgba(212,175,55,0.3); }
+        .dl-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,175,55,0.5) !important; }
+
+        .ticker-wrap { background: #000; border-bottom: 1px solid var(--border); padding: 12px 0; overflow: hidden; display: flex; align-items: center; }
+        .ticker-badge { padding: 0 20px; font-weight: 900; font-size: 12px; white-space: nowrap; border-left: 3px solid var(--green); display: flex; align-items: center; gap: 8px; color: var(--green2); }
+        .ticker-track { flex: 1; overflow: hidden; display: flex; }
+        .ticker-text { display: inline-block; padding-right: 100%; animation: tick 28s linear infinite; font-size: 13px; font-weight: 600; white-space: nowrap; color: var(--text2); }
+
+        .hero { padding: 24px 32px 16px; max-width: 1320px; margin: 0 auto; width: 100%; }
+        .wc-banner { background: linear-gradient(135deg, #090e1f, #131a35); border: 1px solid var(--border); border-radius: 18px; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; overflow: hidden; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .wc-banner::before { content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(0,204,102,0.08), transparent); pointer-events: none; }
+        .wc-info { position: relative; z-index: 1; }
+        
+        .wc-label { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 204, 102, 0.15); border: 1px solid rgba(0,204,102,0.3); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; color: var(--green2); }
+        .live-dot { width: 8px; height: 8px; background: #fff; border-radius: 50%; animation: pulse 1.2s infinite; box-shadow: 0 0 10px #fff; }
+        
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; background: var(--green); } 50% { transform: scale(1.4); opacity: .5; background: #fff; } }
+        .wc-title { font-size: 26px; font-weight: 900; line-height: 1.2; margin: 8px 0 4px; color: #ffffff; }
+        .wc-sub { font-size: 13px; color: var(--text2); font-weight: 500; }
+        .wc-logos { display: flex; align-items: center; gap: 16px; z-index: 1; }
+        .wc-logos img { width: 56px; height: 56px; filter: drop-shadow(0 0 15px rgba(255,255,255,0.25)); object-fit: contain; }
+        
+        .content-wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px 60px; width: 100%; z-index: 1; }
+        .section-head { margin-bottom: 16px; display: flex; align-items: center; gap: 14px; font-weight: 900; color: #fff; font-size: 22px; text-transform: uppercase; }
+        .section-head i { color: var(--gold); font-size: 24px; filter: drop-shadow(0 0 10px rgba(212,175,55,0.4)); }
+
+        /* الأقسام التفاعلية للشبكات والمباريات */
+        .matches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+        .match-card { background: rgba(14, 19, 38, 0.65); border: 1px solid var(--border); border-radius: 20px; padding: 24px; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); position: relative; }
+        .match-card:hover { transform: translateY(-3px); border-color: rgba(0,204,102,0.35); box-shadow: 0 15px 30px rgba(6,9,19,0.7); }
+
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .comm-tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; font-size: 11px; color: var(--text2); font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        .comm-tag i { color: var(--gold); }
+        
+        .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 900; display: flex; align-items: center; gap: 6px; }
+        .status-live { background: linear-gradient(135deg, rgba(0,204,102,0.25), rgba(0,204,102,0.1)); color: var(--green2); border: 1px solid var(--green); }
+        .status-soon { background: rgba(30, 38, 70, 0.6); color: var(--text2); border: 1px solid var(--border); }
+
+        .match-main-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 12px 0; }
+        .team-box { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 40%; }
+        .team-box img { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5)); transition: transform 0.3s ease; }
+        .match-card:hover .team-box img { transform: scale(1.1); }
+        .team-name { font-size: 14px; font-weight: 900; color: #fff; text-align: center; line-height: 1.3; }
+
+        .center-info { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 20%; }
+        .time-tag { font-family: 'Orbitron', sans-serif; font-size: 15px; color: var(--gold2); font-weight: 900; background: #000; padding: 4px 12px; border-radius: 8px; border: 1px solid var(--border); }
+        .vs-circle { margin-top: 6px; font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--text2); background: rgba(255,255,255,0.04); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+        .watch-btn {
+            width: 100%; margin-top: 20px; padding: 14px;
+            background: linear-gradient(135deg, var(--green), #005522);
+            color: white; border: none; border-radius: 12px;
+            font-family: 'Cairo', sans-serif; font-weight: 900; font-size: 15px;
+            cursor: pointer; transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 8px; outline: none;
+            box-shadow: 0 4px 12px rgba(0, 204, 102, 0.3); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .watch-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 204, 102, 0.5); }
+
+        #page-contact { display: none; padding: 60px 32px; text-align: center; z-index: 1; }
+        .contact-wrap { background: var(--card); border: 2px solid var(--border); border-radius: 24px; padding: 40px; display: inline-block; max-width: 500px; width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+        .contact-wrap h2 { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 24px; }
+        .social-btns { display: flex; flex-direction: column; gap: 14px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: 900; font-size: 15px; transition: all 0.3s; }
+        .social-btn.telegram { background: #0088cc; color: #fff; }
+        .social-btn.tiktok { background: #010101; color: #fff; border: 1px solid var(--border); }
+
+        footer { background: #02040a; border-top: 2px solid var(--border); padding: 32px; text-align: center; margin-top: auto; z-index: 1; }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 900; color: var(--text2); letter-spacing: 2px; margin-bottom: 12px; }
+        .footer-text { font-size: 12px; color: #4a5d80; font-weight: 700; }
+
+        @keyframes tick { from { transform: translateX(100%) } to { transform: translateX(-100%) } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px) } to { opacity: 1; transform: translateY(0) } }
+        .fade-up { animation: fadeInDown 0.5s ease both; }
+
+        @media(max-width: 900px){
+            .header-top { display: none; }
+            .header-main { padding: 0 16px; height: 70px; }
+            .logo-main { font-size: 20px; }
+            .hero { padding: 16px 16px 10px; }
+            .content-wrap { padding: 0 16px 40px; }
+            .wc-banner { padding: 14px 20px; border-radius: 14px; }
+            .wc-title { font-size: 18px; margin: 4px 0; }
+            .matches-grid { grid-template-columns: 1fr; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+
+<header>
+    <div class="header-top">🏆 شبكة نور سبورت الرياضية &nbsp;|&nbsp; تغطية شاملة ومباشرة لأقوى البطولات العالمية &nbsp;|&nbsp; ⚽ 2026</div>
+
+    <div class="ticker-wrap">
+        <div class="ticker-badge"><i class="fas fa-bolt"></i> تنبيه هام</div>
+        <div class="ticker-track">
+            <div class="ticker-text">مرحباً بكم في شبكة نور سبورت.. يرجى العلم أن سيرفرات وروابط البث المباشر للمباريات تفتح تلقائياً قبل انطلاق صافرة المباراة بـ 30 دقيقة فقط. نتمنى لكم مشاهدة ممتعة! 🔥⚽</div>
+        </div>
+    </div>
+
+    <div class="header-main">
+        <a class="logo" onclick="showPage('home');">
+            <div class="logo-emblem"><span>⚽</span></div>
+            <div>
+                <div class="logo-main">NOUR SPORT</div>
+                <div class="logo-sub">Live Streaming</div>
+            </div>
+        </a>
+        <nav>
+            <a href="#" class="dl-btn"><i class="fas fa-mobile-alt"></i> التطبيق</a>
+            <a href="#" class="active" id="nav-home" onclick="showPage('home'); return false;">الرئيسية</a>
+            <a href="#" id="nav-contact" onclick="showPage('contact'); return false;">اتصل بنا</a>
+        </nav>
+    </div>
+</header>
+
+<main id="page-home" style="display: block;">
+    <div class="hero fade-up">
+        <div class="wc-banner">
+            <div class="wc-info">
+                <div class="wc-label"><div class="live-dot"></div> تغطية خاصة</div>
+                <div class="wc-title">مباريات اليوم بث مباشر</div>
+                <div class="wc-sub">استمتع بجودة عالية بدون تقطيع عبر سيرفرات نور سبورت</div>
+            </div>
+            <div class="wc-logos">
+                <i class="fas fa-trophy" style="font-size: 40px; color: var(--gold); filter: drop-shadow(0 0 10px var(--gold));"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap fade-up d2">
+        <div class="section-head">
+            <i class="fas fa-calendar-alt"></i>
+            <span>جدول مباريات اليوم</span>
+        </div>
+
+        <div class="matches-grid">
+            <div class="match-card">
+                <div class="card-top">
+                    <span class="comm-tag"><i class="fas fa-microphone"></i> عصام الشوالي</span>
+                    <span class="status-badge status-live"><div class="live-dot"></div> مباشر الآن</span>
+                </div>
+                <div class="match-main-row">
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50" alt="الفريق الأول">
+                        <div class="team-name">ريال مدريد</div>
+                    </div>
+                    <div class="center-info">
+                        <div class="time-tag">22:00</div>
+                        <div class="vs-circle">VS</div>
+                    </div>
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50" alt="الفريق الثاني">
+                        <div class="team-name">برشلونة</div>
+                    </div>
+                </div>
+                <button class="watch-btn" onclick="alert('سيتم فتح شاشة البث هنا عند ربط المشغل')"><i class="fas fa-play-circle"></i> شاهد البث المباشر</button>
+            </div>
+
+            <div class="match-card">
+                <div class="card-top">
+                    <span class="comm-tag"><i class="fas fa-microphone"></i> خليل البلوشي</span>
+                    <span class="status-badge status-soon">لم تبدأ بعد</span>
+                </div>
+                <div class="match-main-row">
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50" alt="الفريق الأول">
+                        <div class="team-name">ليفربول</div>
+                    </div>
+                    <div class="center-info">
+                        <div class="time-tag">00:30</div>
+                        <div class="vs-circle">VS</div>
+                    </div>
+                    <div class="team-box">
+                        <img src="https://via.placeholder.com/50" alt="الفريق الثاني">
+                        <div class="team-name">مانشستر سيتي</div>
+                    </div>
+                </div>
+                <button class="watch-btn" style="background: #121622; color: #555; cursor: not-allowed;" disabled><i class="fas fa-clock"></i> في انتظار الصافرة</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="page-contact">
+    <div class="contact-wrap fade-up">
+        <h2>تواصل معنا - نور سبورت</h2>
+        <div class="social-btns">
+            <a href="#" class="social-btn telegram"><i class="fab fa-telegram-plane"></i> تابعنا على تليجرام</a>
+            <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i> تابعنا على تيك توك</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">NOUR SPORT</div>
+    <div class="footer-text">جميع الحقوق محفوظة © لشبكة نور سبورت 2026</div>
+</footer>
+
+<script>
+    // نظام التنقل بين الصفحات المدمج الذكي
+    function showPage(pageId) {
+        const homePage = document.getElementById('page-home');
+        const contactPage = document.getElementById('page-contact');
+        const navHome = document.getElementById('nav-home');
+        const navContact = document.getElementById('nav-contact');
+
+        if (pageId === 'home') {
+            homePage.style.display = 'block';
+            contactPage.style.display = 'none';
+            navHome.classList.add('active');
+            navContact.classList.remove('active');
+        } else if (pageId === 'contact') {
+            homePage.style.display = 'none';
+            contactPage.style.display = 'block';
+            navHome.classList.remove('active');
+            navContact.classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
