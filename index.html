@@ -188,28 +188,40 @@
             <span>جدول مباريات اليوم</span>
         </div>
 
-        <div class="matches-grid">
-            <div class="match-card">
-                <div class="card-top">
-                    <span class="comm-tag"><i class="fas fa-microphone"></i> عصام الشوالي</span>
-                    <span class="status-badge status-live"><div class="live-dot"></div> مباشر الآن</span>
-                </div>
-                <div class="match-main-row">
-                    <div class="team-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="الفريق الأول">
-                        <div class="team-name">اسبانيا</div>
-                    </div>
-                    <div class="center-info">
-                        <div class="time-tag">22:00</div>
-                        <div class="vs-circle">VS</div>
-                    </div>
-                    <div class="team-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png" alt="الفريق الثاني">
-                        <div class="team-name">البرتغال</div>
-                    </div>
-                </div>
-                <button class="watch-btn" onclick="alert(https://player.twitch.tv/?channel=mmaajjeedd999&enableExtensions=true&muted=false&parent=twitch.tv&player=popout&quality=360p25&volume=0.5)"><i class="fas fa-play-circle"></i> شاهد البث المباشر</button>
+        <div class="match-card">
+            <div class="card-top">
+                <div class="comm-tag"><i class="fas fa-microphone"></i> تعليق عربي</div>
+                <div class="status-badge status-live"><div class="live-dot"></div> مباشر</div>
             </div>
+            <div class="match-main-row">
+                <div class="team-box team1">
+                    <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
+                    <span class="team-name">انجلترا</span>
+                </div>
+                <div class="center-info">
+                    <div class="time-tag">الساعة 4</div>
+                    <div class="vs-circle">VS</div>
+                </div>
+                <div class="team-box team2">
+                    <img src="https://via.placeholder.com/50?text=⚽" onerror="this.src='https://via.placeholder.com/50?text=⚽'">
+                    <span class="team-name">المكسيك</span>
+                </div>
+            </div>
+            
+            <button class="watch-btn active-state" onclick="toggleWatch(this, 0)"><i class="fas fa-times"></i> إغلاق المشاهدة</button>
+            <div class="player-wrap show" id="player-0" data-loaded="1"><iframe src="https://player.twitch.tv/?channel=mmaajjeedd999&amp;parent=majed-koora.co&amp;muted=false" frameborder="0" allowfullscreen="true" allow="autoplay; fullscreen" scrolling="no"></iframe></div>
+        
+            
+                <div class="quality-container">
+                    <div class="quality-row">
+                        <a class="s-btn high" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-fire-flame-curved"></i></div><div class="s-info"><div class="s-quality">جودة FHD</div><div class="s-desc">1080p</div></div></a>
+                        <a class="s-btn med" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-signal"></i></div><div class="s-info"><div class="s-quality">جودة HD</div><div class="s-desc">720p</div></div></a>
+                        <a class="s-btn low" href="https://majed-koora.co/stream.php?channel=mmaajjeedd999&amp;file=stream.m3u8" target="_blank"><div class="s-icon"><i class="fas fa-wifi"></i></div><div class="s-info"><div class="s-quality">جودة SD</div><div class="s-desc">480p</div></div></a>
+                        
+                    </div>
+                </div>
+            
+        </div>
 
             <div class="match-card">
                 <div class="card-top">
